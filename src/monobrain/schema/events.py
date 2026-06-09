@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-from datetime import datetime
 from typing import Annotated, Literal, Union
 from uuid import UUID
 
@@ -85,17 +84,15 @@ Payload = Annotated[
 
 
 class Event(BaseModel):
-    id: UUID  # client-assigned → server dedupes (spool retries)
+    id: UUID  # client-assigned UUIDv7 → server dedupes (spool retries) + index locality
     type: str  # mirrors data.type (the taxonomy string); kept on the envelope for routing
-    time: datetime | None = None  # server-receive
-    client_time: datetime | None = None  # client-emit (offline skew)
     team: str | None = None
     project: str | None = None
     spec: str | None = None  # nullable: curator/skill.* aren't spec-scoped
     actor: Actor
-    subject: str | None = None
     data: Payload
     schema_version: int = 1
+    # server stamps `received_at` + `seq` on ingest — not wire fields.
 
     @model_validator(mode="after")
     def _type_mirrors_payload(self) -> "Event":
