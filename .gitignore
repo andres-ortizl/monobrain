@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.venv/
+dist/
+*.egg-info/
+.env
+.envrc
+
+# local stores (rebuildable / embedded)
+/data/
+*.lance/
+*.db
+*.sqlite*
+
+# local-only design doc (not published)
+ARCHITECTURE.md
