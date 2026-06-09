@@ -1,3 +1,10 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="branding/logo-dark.svg">
+    <img src="branding/logo.svg" alt="monobrain" width="76">
+  </picture>
+</p>
+
 # monobrain
 
 Code-native memory + curator for coding agents — **one shared brain** that compounds what
