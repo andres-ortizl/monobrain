@@ -1,6 +1,6 @@
 from monobrain.schema.events import (
     Actor,
-    CuratorRun,
+    LibrarianRun,
     Event,
     MemoryDecided,
     MemoryProposed,
@@ -25,7 +25,7 @@ __all__ = [
     "KINDS",
     "Actor",
     "Anchor",
-    "CuratorRun",
+    "LibrarianRun",
     "Event",
     "MemoryDecided",
     "MemoryEntry",

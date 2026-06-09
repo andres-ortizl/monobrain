@@ -63,9 +63,9 @@ class SkillUsed(BaseModel):
     skill: str
 
 
-class CuratorRun(BaseModel):
-    type: Literal["curator.run"] = "curator.run"
-    phase: Literal["distill", "prune", "propose", "heal", "promote"]
+class LibrarianRun(BaseModel):
+    type: Literal["librarian.run"] = "librarian.run"
+    phase: Literal["distill", "organize", "dedup", "heal", "prune", "promote"]
 
 
 Payload = Annotated[
@@ -77,7 +77,7 @@ Payload = Annotated[
         MemoryDecided,
         MemoryUsed,
         SkillUsed,
-        CuratorRun,
+        LibrarianRun,
     ],
     Field(discriminator="type"),
 ]
